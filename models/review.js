@@ -2,22 +2,13 @@ module.exports = (sequelize, DataTypes) => {
   const Review = sequelize.define(
     "Review",
     {
-      //Giving the Reviewer model a name of type STRING
-      name: DataTypes.STRING,
-      rate: DataTypes.INTEGER
+      client_comment: DataTypes.STRING,
+      client_name: DataTypes.STRING,
+      event_id: DataTypes.INTEGER
     },
     {
       timestamps: false
     }
   );
-
-  Review.associate = models => {
-    // Associating Reviewer with Reviews
-    Review.belongsTo(models.Reviewer, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
   return Review;
 };
